@@ -1,28 +1,23 @@
 const themeToggleBtn = document.getElementById('theme-toggle');
 const body = document.body;
 
-// Load theme from localStorage or default to light
-const savedTheme = localStorage.getItem('theme') || 'light';
-if (savedTheme === 'dark') {
+// Load saved theme
+if (localStorage.getItem('theme') === 'dark') {
   body.classList.add('dark');
   themeToggleBtn.textContent = '☀️';
 } else {
   themeToggleBtn.textContent = '🌙';
 }
 
-// Toggle theme handler
+// Theme toggle
 themeToggleBtn.addEventListener('click', () => {
   body.classList.toggle('dark');
-  if (body.classList.contains('dark')) {
-    themeToggleBtn.textContent = '☀️';
-    localStorage.setItem('theme', 'dark');
-  } else {
-    themeToggleBtn.textContent = '🌙';
-    localStorage.setItem('theme', 'light');
-  }
+  const isDark = body.classList.contains('dark');
+  themeToggleBtn.textContent = isDark ? '☀️' : '🌙';
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
 
-// Fetch and render cats
+// Render cats
 fetch('data/cats.json')
   .then(response => response.json())
   .then(cats => {
@@ -45,7 +40,6 @@ fetch('data/cats.json')
         </div>
       `;
 
-      // Toggle details on card click
       card.addEventListener('click', () => {
         card.classList.toggle('active');
       });
