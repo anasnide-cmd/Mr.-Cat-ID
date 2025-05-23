@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Milo",
+    "breed": "Persian",
+    "gender": "Male",
+    "dob": "2021-03-10",
+    "colour": "White",
+    "personality": "Playful and friendly",
+    "status": "Alive"
+  },
+  {
+    "name": "Luna",
+    "breed": "British Shorthair",
+    "gender": "Female",
+    "dob": "2020-11-05",
+    "colour": "Grey",
+    "personality": "Calm and gentle",
+    "status": "Alive"
+  }
+]
