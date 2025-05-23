@@ -1,28 +1,25 @@
 :root {
-  --bg-light: #f7f7f7;
-  --text-light: #333;
-  --card-bg-light: #fff;
-  --border-light: #ccc;
+  --bg: #f7f7f7;
+  --text: #333;
+  --card-bg: #fff;
+  --border: #ccc;
+}
 
-  --bg-dark: #121212;
-  --text-dark: #eee;
-  --card-bg-dark: #1e1e1e;
-  --border-dark: #444;
+body.dark {
+  --bg: #121212;
+  --text: #eee;
+  --card-bg: #1e1e1e;
+  --border: #444;
 }
 
 body {
   font-family: Arial, sans-serif;
-  background: var(--bg-light);
-  color: var(--text-light);
+  background-color: var(--bg);
+  color: var(--text);
   margin: 0;
   padding: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
   text-align: center;
-  transition: background 0.3s, color 0.3s;
-}
-
-body.dark {
-  background: var(--bg-dark);
-  color: var(--text-dark);
 }
 
 header {
@@ -60,22 +57,15 @@ h1 {
 }
 
 .cat-card {
-  background: var(--card-bg-light);
-  border: 1px solid var(--border-light);
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 10px;
   width: 250px;
   padding: 15px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   text-align: left;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
   cursor: pointer;
-  transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
-  position: relative;
-}
-
-body.dark .cat-card {
-  background: var(--card-bg-dark);
-  border: 1px solid var(--border-dark);
-  box-shadow: 0 2px 10px rgba(255,255,255,0.1);
 }
 
 .cat-card:hover {
@@ -103,7 +93,6 @@ body.dark .cat-card {
   display: block;
 }
 
-/* Responsive */
 @media (max-width: 600px) {
   #cats-container {
     flex-direction: column;
